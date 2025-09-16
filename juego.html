@@ -155,20 +155,19 @@
     // Enemigos
     let enemies = [];
 
-    function spawnEnemy() {
-        const yOptions = [540, 480, 380, 280, 200];
-        const y = yOptions[Math.floor(Math.random() * yOptions.length)];
-        const velocity = (Math.random() * 2 + 1.5) * (Math.random() < 0.5 ? 1 : -1);
-        const newEnemy = {
-            x: Math.random() * (canvas.width - 30),
-            y: y,
-            width: 25,
-            height: 25,
-            velocityX: velocity,
-            color: '#e74c3c'
-        };
-        enemies.push(newEnemy);
-    }
+function spawnEnemy() {
+    const velocity = (Math.random() * 2 + 1.5) * (Math.random() < 0.5 ? 1 : -1);
+    const newEnemy = {
+        x: Math.random() * (canvas.width - 25),
+        y: Math.random() * (canvas.height - 100), // evitar aparecer demasiado abajo
+        width: 25,
+        height: 25,
+        velocityX: velocity,
+        color: '#e74c3c'
+    };
+    enemies.push(newEnemy);
+}
+
 
     // Inicializar con algunos enemigos
     for (let i = 0; i < 3; i++) {
