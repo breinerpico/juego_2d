@@ -5,108 +5,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Expo Juegos</title>
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Segoe UI', 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #ffd6e0, #b8e0ff);
-      margin: 0;
-      padding: 20px;
-      color: #222;
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      padding: 30px;
+      color: #fff;
+    }
+
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
       text-align: center;
-      margin-bottom: 30px;
-      color: #1a1a1a;
-      font-size: 2.5em;
+      margin-bottom: 40px;
+      font-size: 3em;
+      color: #ffffffcc;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
     }
 
     .games-container {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
+      gap: 25px;
       max-width: 1200px;
       margin: 0 auto;
     }
 
     .game-card {
-      background: #a665e2;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
       overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .game-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
     .game-image {
-      font-size: 60px;
+      font-size: 50px;
       text-align: center;
-      padding: 25px;
+      padding: 30px;
     }
 
     .game-info {
-      padding: 15px;
+      padding: 20px;
       text-align: center;
     }
 
     .game-title {
-      font-size: 1.4em;
-      margin-bottom: 8px;
-      color: #333;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
     }
 
     .game-description {
       font-size: 0.95em;
-      margin-bottom: 16px;
-      color: #555;
+      margin-bottom: 20px;
+      color: #ccc;
     }
 
     .play-button {
-      background: #bb4c9a;
-      border: none;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 30px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 25px;
       font-size: 1em;
       cursor: pointer;
-      box-shadow: 4px 4px 10px rgba(0,0,0,0.1),
-                  -4px -4px 10px rgba(255,255,255,0.6);
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px #00f2ff88;
     }
 
     .play-button:hover {
-      background: #e8f0ff;
-      color: #222;
+      background: #00f2ff;
+      color: #111;
+      box-shadow: 0 0 15px #00f2ff, 0 0 30px #00f2ff88;
+      transform: scale(1.05);
     }
 
     .play-button:active {
-      box-shadow: inset 2px 2px 6px rgba(0,0,0,0.2),
-                  inset -2px -2px 6px rgba(255,255,255,0.6);
-      transform: scale(0.98);
+      transform: scale(0.95);
     }
+
   </style>
 </head>
 <body>
-  <h1>👾 Expo Juegos 👾</h1>
+  <h1>🎮 Expo Juegos 🎮</h1>
   <div class="games-container">
 
-    <!-- Tower Blocks -->
     <div class="game-card" onclick="window.open('Tower-blocks/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🧱</div>
       <div class="game-info">
         <h3 class="game-title">Tower Blocks</h3>
-        <p class="game-description">Construye una torre alta con precision.</p>
+        <p class="game-description">Construye una torre alta con precisión.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Snake -->
     <div class="game-card" onclick="window.open('snake_game/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🐍</div>
       <div class="game-info">
         <h3 class="game-title">Snake Game</h3>
         <p class="game-description">Come manzanas y crece.</p>
@@ -114,9 +130,8 @@
       </div>
     </div>
 
-    <!-- Pong -->
     <div class="game-card" onclick="window.open('pong_juego/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🏓</div>
       <div class="game-info">
         <h3 class="game-title">Pong Game</h3>
         <p class="game-description">Mueve tu paleta y gana.</p>
@@ -124,9 +139,8 @@
       </div>
     </div>
 
-    <!-- Tiro al Blanco -->
     <div class="game-card" onclick="window.open('tiro_blanco/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🎯</div>
       <div class="game-info">
         <h3 class="game-title">Tiro al Blanco</h3>
         <p class="game-description">Demuestra tu puntería.</p>
@@ -134,119 +148,107 @@
       </div>
     </div>
 
-    <!-- Pacman -->
     <div class="game-card" onclick="window.open('pacmann/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">👻</div>
       <div class="game-info">
         <h3 class="game-title">Pac-Mann</h3>
-        <p class="game-description">El clasico juego de pacman</p>
+        <p class="game-description">El clásico juego de Pacman.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Flappy Bird -->
     <div class="game-card" onclick="window.open('flappy-bird-/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🐤</div>
       <div class="game-info">
         <h3 class="game-title">Flappy Bird</h3>
-        <p class="game-description">esquiva la tuberias</p>
+        <p class="game-description">Esquiva las tuberías.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Carrera del Caos -->
     <div class="game-card" onclick="window.open('carrera_del_caos/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🏁</div>
       <div class="game-info">
         <h3 class="game-title">Carrera del Caos</h3>
-        <p class="game-description">Esquiva obstáculos para llegar primero</p>
+        <p class="game-description">Esquiva obstáculos para llegar primero.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Juego 2D -->
     <div class="game-card" onclick="window.open('Juego_2D/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🛸</div>
       <div class="game-info">
-        <h3 class="game-title">space invaders</h3>
+        <h3 class="game-title">Space Invaders</h3>
         <p class="game-description">Destruye las naves antes que lleguen abajo.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Juego clásico -->
     <div class="game-card" onclick="window.open('juego/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">⚔️</div>
       <div class="game-info">
-        <h3 class="game-title">Gerra femenina</h3>
-        <p class="game-description">Esquiva con precision</p>
+        <h3 class="game-title">Guerra Femenina</h3>
+        <p class="game-description">Esquiva con precisión.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Nave Espacial -->
     <div class="game-card" onclick="window.open('Juego_2D/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🚀</div>
       <div class="game-info">
         <h3 class="game-title">Nave Espacial</h3>
-        <p class="game-description">Juega tumbando nave espaciales.</p>
+        <p class="game-description">Juega tumbando naves espaciales.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Juegos PHP -->
     <div class="game-card" onclick="window.open('juegos_php/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">💻</div>
       <div class="game-info">
         <h3 class="game-title">Juego PHP</h3>
-        <p class="game-description"></p>
+        <p class="game-description">Desarrollado con PHP.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Sarith -->
     <div class="game-card" onclick="window.open('sarith/src/game.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">⌨️</div>
       <div class="game-info">
         <h3 class="game-title">Nave Escritora</h3>
-        <p class="game-description">Se el mas rapido escribiendo para avanzar.</p>
+        <p class="game-description">Sé el más rápido escribiendo para avanzar.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Dinosaurio -->
     <div class="game-card" onclick="window.open('dinosaurio_de_google-/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🦖</div>
       <div class="game-info">
         <h3 class="game-title">Dinosaurio</h3>
-        <p class="game-description">El clasico juego del dinosaurio.</p>
+        <p class="game-description">El clásico juego del dinosaurio.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Ninja -->
     <div class="game-card" onclick="window.open('juegp2.0/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🥷</div>
       <div class="game-info">
         <h3 class="game-title">Ninja</h3>
-        <p class="game-description">experimenta ser ninja</p>
+        <p class="game-description">Experimenta ser ninja.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Candy Crush -->
     <div class="game-card" onclick="window.open('Candy_Crush/index.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🍬</div>
       <div class="game-info">
         <h3 class="game-title">Candy Crush</h3>
-        <p class="game-description"></p>
+        <p class="game-description">Combina caramelos y gana puntos.</p>
         <button class="play-button">¡Jugar Ahora!</button>
       </div>
     </div>
 
-    <!-- Supervivencia -->
     <div class="game-card" onclick="window.open('juego.html', '_blank')">
-      <div class="game-image"></div>
+      <div class="game-image">🛡️</div>
       <div class="game-info">
         <h3 class="game-title">Sobreviviendo</h3>
         <p class="game-description">Sobrevive y esquiva a los enemigos del mapa.</p>
